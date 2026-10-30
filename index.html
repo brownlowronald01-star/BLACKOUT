@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACKOUT — AOPG Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<aside class="sidebar">
+  <a class="brand" href="#overview"><span class="brand-icon">B</span><span>BLACKOUT<small>GRAND LINE DATABASE</small></span></a>
+  <div class="workspace"><span class="workspace-mark">A</span><span><b>AOPG HQ</b><small>Community workspace</small></span><span class="chevron">⌄</span></div>
+  <div class="nav-caption">WORKSPACE</div>
+  <nav class="navigation">
+    <a class="nav-item active" href="#overview" data-section="OVERVIEW"><span>▦</span> Overview</a>
+    <a class="nav-item" href="#board" data-section="ADVENTURE BOARD"><span>▤</span> Adventure board <i class="count">6</i></a>
+    <a class="nav-item" href="#fruits" data-section="FRUIT TIER LIST"><span>✦</span> Fruit tier list</a>
+    <a class="nav-item" href="#codes" data-section="GAME CODES"><span>⌘</span> Game codes</a>
+    <a class="nav-item" href="#guides" data-section="GUIDES & BUILDS"><span>⚔</span> Guides & builds</a>
+  </nav>
+  <div class="nav-caption tools-caption">PERSONAL</div>
+  <nav class="navigation">
+    <a class="nav-item" href="#saved" data-section="SAVED ITEMS"><span>☆</span> Saved items</a>
+    <a class="nav-item" href="#support" data-section="SUPPORT BLACKOUT"><span>♥</span> Support BLACKOUT</a>
+  </nav>
+  <div class="sidebar-bottom"><div class="online"><i></i> LOCAL WORKSPACE READY</div><small>Your changes save in this browser.</small><div class="side-version">BLACKOUT / v4.0</div></div>
+</aside>
+
+<main class="main">
+  <header class="topbar">
+    <div class="breadcrumbs">AOPG HQ <span>/</span> <b id="currentSection">OVERVIEW</b></div>
+    <div class="top-right"><span class="save-indicator"><i></i> AUTO-SAVED LOCALLY</span><div class="avatar">B</div><span class="user-label">PLAYER WORKSPACE</span><button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button></div>
+  </header>
+
+  <section class="welcome" id="overview">
+    <div><div class="eyebrow"><span class="pulse"></span> YOUR GRAND LINE HQ</div><h1>Plan the grind.<br><em>Own the journey.</em></h1><p>Keep your goals, fruit rankings, codes, and game notes organized in one place.</p></div>
+    <div class="welcome-right"><div class="date-label">YOUR WORKSPACE</div><div class="welcome-stat"><strong id="taskCount">06</strong><span>ACTIVE BOARD CARDS</span></div><div class="welcome-stat"><strong id="savedCount">00</strong><span>SAVED ITEMS</span></div></div>
+  </section>
+
+  <section class="quick-stats">
+    <article><span class="quick-icon red-icon">✦</span><div><small>FRUITS LISTED</small><b id="fruitCount">12</b><span>Sample database</span></div></article>
+    <article><span class="quick-icon gold-icon">⌘</span><div><small>CODE TRACKER</small><b id="codeCount">3</b><span>Entries to verify</span></div></article>
+    <article><span class="quick-icon blue-icon">▤</span><div><small>BOARD CARDS</small><b id="boardCount">6</b><span>Across your columns</span></div></article>
+    <article><span class="quick-icon green-icon">✓</span><div><small>COMPLETED</small><b id="doneCount">1</b><span>Marked as done</span></div></article>
+  </section>
+
+  <section class="section board-section" id="board">
+    <div class="section-head"><div><div class="eyebrow">YOUR ADVENTURE PLANNER</div><h2>THE <em>BOARD</em></h2><p>Move cards between stages, add goals, and keep your next moves clear.</p></div><button class="primary-btn" id="addCardBtn">＋ ADD CARD</button></div>
+    <div class="board-toolbar"><span><i class="tiny-live"></i> PERSONAL BOARD</span><span class="hint">Drag cards between columns · Changes save automatically</span></div>
+    <div class="board" id="boardColumns">
+      <div class="board-column" data-status="todo"><div class="column-head"><span class="column-dot dot-red"></span><b>UP NEXT</b><span class="column-count">2</span><button class="column-add" data-add="todo">＋</button></div><div class="card-stack" id="todoCards"></div></div>
+      <div class="board-column" data-status="doing"><div class="column-head"><span class="column-dot dot-gold"></span><b>IN PROGRESS</b><span class="column-count">2</span><button class="column-add" data-add="doing">＋</button></div><div class="card-stack" id="doingCards"></div></div>
+      <div class="board-column" data-status="done"><div class="column-head"><span class="column-dot dot-green"></span><b>COMPLETED</b><span class="column-count">1</span><button class="column-add" data-add="done">＋</button></div><div class="card-stack" id="doneCards"></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="fruits">
+    <div class="section-head"><div><div class="eyebrow">COMMUNITY RANKINGS</div><h2>FRUIT <em>TIER LIST</em></h2><p>Sort the sample list, search fruits, and make your own ranking notes.</p></div><button class="outline-btn" id="addFruitBtn">＋ ADD FRUIT</button></div>
+    <div class="filter-row"><div class="search"><span>⌕</span><input id="fruitSearch" placeholder="Search fruit or type..."></div><select id="fruitType"><option value="all">All types</option><option>Paramecia</option><option>Logia</option><option>Zoan</option><option>Other</option></select><select id="fruitSort"><option value="tier">Sort by tier</option><option value="name">Sort by name</option></select></div>
+    <div class="tier-table">
+      <div class="tier-row tier-s"><div class="tier-label">S</div><div class="tier-items" id="tierS"></div></div>
+      <div class="tier-row tier-a"><div class="tier-label">A</div><div class="tier-items" id="tierA"></div></div>
+      <div class="tier-row tier-b"><div class="tier-label">B</div><div class="tier-items" id="tierB"></div></div>
+      <div class="tier-row tier-c"><div class="tier-label">C</div><div class="tier-items" id="tierC"></div></div>
+    </div>
+    <div class="note-line">Rankings are editable community placeholders, not verified current-game rankings. Balance and usefulness may change with updates.</div>
+  </section>
+
+  <section class="section" id="codes">
+    <div class="section-head"><div><div class="eyebrow">REDEEM & TRACK</div><h2>GAME <em>CODES</em></h2><p>Keep codes and their status together. Verify each one in-game before sharing.</p></div><button class="primary-btn" id="addCodeBtn">＋ ADD CODE</button></div>
+    <div class="code-summary"><div><strong id="activeCodes">0</strong><span>UNVERIFIED ENTRIES</span></div><div><strong>MANUAL</strong><span>STATUS CHECK</span></div><div class="code-summary-note">No live code feed is connected. Add codes from official announcements and mark their status yourself.</div></div>
+    <div class="code-list" id="codeList"></div>
+  </section>
+
+  <section class="section" id="guides">
+    <div class="section-head"><div><div class="eyebrow">FIELD NOTES</div><h2>GUIDES <em>& BUILDS</em></h2><p>Useful checklists and notes for planning your next session.</p></div></div>
+    <div class="guide-grid">
+      <article class="guide-card"><div class="guide-top"><span>01 / PREP</span><b>⚔</b></div><h3>Boss preparation</h3><p>Check your level, equipment, healing, and team roles before a boss attempt.</p><ul><li>Review the boss pattern</li><li>Set a team role</li><li>Record drops and results</li></ul></article>
+      <article class="guide-card"><div class="guide-top"><span>02 / BUILD</span><b>✦</b></div><h3>Build planner</h3><p>Track your fruit, weapon, fighting style, and stat priorities in a board card.</p><ul><li>Write down your current setup</li><li>Note what you want to test</li><li>Compare results after a run</li></ul></article>
+      <article class="guide-card"><div class="guide-top"><span>03 / TEAM</span><b>◈</b></div><h3>Party checklist</h3><p>Use a quick checklist to coordinate a group before starting an activity.</p><ul><li>Confirm everyone is ready</li><li>Agree on a strategy</li><li>Share useful drops and notes</li></ul></article>
+    </div>
+  </section>
+
+  <section class="section saved-section" id="saved">
+    <div class="section-head"><div><div class="eyebrow">YOUR COLLECTION</div><h2>SAVED <em>ITEMS</em></h2><p>Save fruit entries and code notes for quick reference.</p></div></div>
+    <div class="saved-list" id="savedList"><div class="empty-state">Nothing saved yet. Use the ☆ on a fruit or code to keep it here.</div></div>
+  </section>
+
+  <section class="section support-section" id="support">
+    <div class="section-head"><div><div class="eyebrow">HELP THE PROJECT GROW</div><h2>SUPPORT <em>BLACKOUT</em></h2><p>Keep the community tools improving. Support is optional — the core workspace stays free.</p></div></div>
+    <div class="support-banner">
+      <div class="support-banner-copy"><span class="support-kicker">BUILT BY THE COMMUNITY · FOR THE COMMUNITY</span><h3>Keep BLACKOUT <em>independent.</em></h3><p>Every contribution helps cover hosting, maintenance, and new community tools. The core workspace stays free.</p></div>
+      <div class="support-banner-mark">B<span>+</span></div>
+    </div>
+    <div class="support-grid">
+      <article class="support-card support-featured">
+        <div class="support-kicker">COMMUNITY SUPPORT</div><div class="support-symbol">♥</div>
+        <h3>Support the build</h3><p>If BLACKOUT helps you organize your AOPG grind, you can support future improvements. Donations are optional and do not unlock gameplay advantages.</p>
+        <button class="primary-btn" id="donateBtn">OPEN SUPPORT PAGE ↗</button>
+        <div class="support-trust"><span>✓ Optional</span><span>✓ No gameplay advantage</span><span>✓ Core tools stay free</span></div>
+        <small id="donateNote">Support link is not connected. A verified payment page must be added before this button accepts contributions.</small>
+      </article>
+      <article class="support-card">
+        <div class="support-kicker">FUTURE EXTRAS</div><div class="support-symbol gold-symbol">✦</div>
+        <h3>BLACKOUT Plus</h3><p>Potential extras for later: expanded personal trackers, custom board themes, downloadable build sheets, and extra organization tools.</p>
+        <span class="coming-soon">COMING LATER · NOT FOR SALE</span>
+        <ul class="plus-list"><li>Extra personal dashboards</li><li>Custom themes and layouts</li><li>Exportable build notes</li></ul>
+        <small>Nothing is paywalled right now. The core tools remain free.</small>
+      </article>
+      <article class="support-card">
+        <div class="support-kicker">CREATOR & COMMUNITY PARTNERS</div><div class="support-symbol">◈</div>
+        <h3>Partner with BLACKOUT</h3><p>Creators and community groups can reach out about guide collaborations, useful resources, or clearly labeled sponsorships.</p>
+        <button class="outline-btn" id="partnerBtn">COPY PARTNERSHIP MESSAGE</button>
+        <small>Set your contact email in script.js before publishing the site.</small>
+      </article>
+    </div>
+    <div class="ad-slot">
+      <div class="ad-slot-art"><span>AD</span></div>
+      <div class="ad-slot-copy"><b>COMMUNITY SPOTLIGHT / AD SPACE</b><p>Reserved for a relevant, clearly labeled sponsor or community feature. No ad network is connected and no ads are being served.</p></div>
+      <span class="ad-status">PLACEMENT RESERVED</span>
+    </div>
+    <div class="monetization-notes">
+      <div><span class="note-number">01</span><b>Support</b><p>Connect a verified donation page. Never collect card details directly on this site.</p></div>
+      <div><span class="note-number">02</span><b>Sponsors</b><p>Only publish transparent partnerships that are relevant to the AOPG community.</p></div>
+      <div><span class="note-number">03</span><b>Ads</b><p>Apply to an ad provider when eligible, then add its approved tag and privacy disclosures.</p></div>
+    </div>
+    <p class="support-disclaimer">BLACKOUT is a fan-made community project, not an official AOPG or Roblox service. Never share passwords or account credentials to receive a donation reward. Any future paid features or ads should be clearly described before someone chooses to support the project.</p>
+  </section>
+
+  <footer><div class="footer-brand"><span class="brand-icon">B</span><b>BLACKOUT</b></div><p>Fan-made AOPG community workspace. Not affiliated with the game developers or Roblox. Game details and codes should be verified against official sources.</p><span>V4.0 · LOCAL SAVE</span></footer>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <div class="modal-head"><div><div class="eyebrow">WORKSPACE EDITOR</div><h3 id="modalTitle">ADD BOARD CARD</h3></div><button class="modal-close" id="modalClose">×</button></div>
+    <form id="itemForm">
+      <label id="titleLabel" for="itemTitle">TITLE</label><input id="itemTitle" maxlength="70" required placeholder="What do you want to track?">
+      <label for="itemDescription">DESCRIPTION / NOTES</label><textarea id="itemDescription" rows="3" maxlength="240" placeholder="Add a few details..."></textarea>
+      <div class="form-row" id="formExtra"><div><label for="itemStatus">COLUMN</label><select id="itemStatus"><option value="todo">Up next</option><option value="doing">In progress</option><option value="done">Completed</option></select></div><div><label for="itemTag">TAG</label><select id="itemTag"><option>Grind</option><option>Boss</option><option>Build</option><option>Trading</option><option>General</option></select></div></div>
+      <div class="form-row hidden" id="fruitExtra"><div><label for="itemTier">TIER</label><select id="itemTier"><option>S</option><option>A</option><option>B</option><option>C</option></select></div><div><label for="itemType">TYPE</label><select id="itemType"><option>Paramecia</option><option>Logia</option><option>Zoan</option><option>Other</option></select></div></div>
+      <div class="form-row hidden" id="codeExtra"><div><label for="itemCodeStatus">STATUS</label><select id="itemCodeStatus"><option>Unverified</option><option>Working</option><option>Expired</option></select></div><div><label for="itemCodeValue">CODE TEXT</label><input id="itemCodeValue" placeholder="Enter code"></div></div>
+      <div class="modal-actions"><button type="button" class="outline-btn" id="cancelModal">CANCEL</button><button class="primary-btn" type="submit">SAVE ITEM</button></div>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast">Saved</div>
+<script src="script.js"></script>
+</body>
+</html>
