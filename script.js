@@ -185,3 +185,24 @@ document.querySelectorAll('.nav-item').forEach(link=>{
     document.querySelectorAll('.navigation').forEach(nav=>nav.classList.remove('expanded'));
   });
 });
+
+
+// Community submissions are routed to the public project issue tracker for review.
+const communityForm = $('communityForm');
+if (communityForm) {
+  communityForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const kind = $('communityType').value.trim();
+    const name = $('communityName').value.trim() || 'Anonymous player';
+    const title = $('communityTitle').value.trim();
+    const details = $('communityDetails').value.trim();
+    if (!title || !details) { toast('Add a title and details first'); return; }
+    const issueTitle = `[Community ${kind}] ${title}`;
+    const issueBody = `**Submission type:** ${kind}\n\n**Submitted by:** ${name}\n\n**Details:**\n${details}\n\n---\nPlease review before adding this information to BLACKOUT. This submission is community-provided and may be unverified.`;
+    const issueUrl = new URL('https://github.com/brownlowronald01-star/BLACKOUT/issues/new');
+    issueUrl.searchParams.set('title', issueTitle);
+    issueUrl.searchParams.set('body', issueBody);
+    window.open(issueUrl.toString(), '_blank', 'noopener,noreferrer');
+    toast('Submission draft opened for review');
+  });
+}

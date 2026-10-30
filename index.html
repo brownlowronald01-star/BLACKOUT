@@ -20,6 +20,7 @@
     <a class="nav-item" href="#fruits" data-section="FRUIT TIER LIST"><span>✦</span> Fruit tier list</a>
     <a class="nav-item" href="#codes" data-section="GAME CODES"><span>⌘</span> Game codes</a>
     <a class="nav-item" href="#guides" data-section="GUIDES & BUILDS"><span>⚔</span> Guides & builds</a>
+    <a class="nav-item" href="#community" data-section="COMMUNITY SUBMISSIONS"><span>◈</span> Community hub <i class="count">NEW</i></a>
   </nav>
   <div class="nav-caption tools-caption">PERSONAL</div>
   <nav class="navigation">
@@ -84,6 +85,26 @@
     </div>
   </section>
 
+  <section class="section" id="community">
+    <div class="section-head"><div><div class="eyebrow">PLAYER CONTRIBUTIONS</div><h2>COMMUNITY <em>HUB</em></h2><p>Send in a code, fruit ranking, guide, or correction for BLACKOUT to review.</p></div><span class="coming-soon">COMMUNITY SUBMISSIONS</span></div>
+    <div class="guide-grid community-highlights">
+      <article class="guide-card"><div class="guide-top"><span>01 / SHARE</span><b>✦</b></div><h3>Player knowledge</h3><p>Share useful tips, tested builds, and fruit observations with the community.</p></article>
+      <article class="guide-card"><div class="guide-top"><span>02 / VERIFY</span><b>✓</b></div><h3>Accuracy first</h3><p>Include when you tested a code or build. Unverified information won't be presented as confirmed.</p></article>
+      <article class="guide-card"><div class="guide-top"><span>03 / REVIEW</span><b>◈</b></div><h3>Human moderation</h3><p>Submissions are suggestions, not instant changes to the public database.</p></article>
+    </div>
+    <div class="support-card community-form-card">
+      <div class="support-kicker">SUBMISSION DESK</div><h3>Send something to the BLACKOUT team</h3>
+      <form id="communityForm" class="community-form">
+        <div class="form-row"><div><label for="communityType">SUBMISSION TYPE</label><select id="communityType"><option>New game code</option><option>Fruit ranking or correction</option><option>Guide or build</option><option>Website bug or suggestion</option></select></div><div><label for="communityName">DISPLAY NAME (OPTIONAL)</label><input id="communityName" maxlength="40" placeholder="Your player name"></div></div>
+        <label for="communityTitle">TITLE</label><input id="communityTitle" maxlength="80" required placeholder="What are you submitting?">
+        <label for="communityDetails">DETAILS / SOURCE</label><textarea id="communityDetails" rows="5" maxlength="1200" required placeholder="Explain the code, ranking, guide, or issue. Include where and when you verified it."></textarea>
+        <div class="community-actions"><button class="primary-btn" type="submit">PREPARE SUBMISSION ↗</button><span class="note-line">This opens a GitHub issue for review. Don't include passwords, private information, or account details.</span></div>
+      </form>
+    </div>
+    <div class="ad-slot"><div class="ad-slot-art"><span>HQ</span></div><div class="ad-slot-copy"><b>COMMUNITY RULES</b><p>Be respectful. No scams, exploits, account trading, personal information, or fake code claims. Clearly label opinions and unverified information.</p></div><span class="ad-status">MODERATED</span></div>
+    <p class="support-disclaimer">Submissions open a public GitHub issue under the BLACKOUT project. Do not submit anything you want to keep private. This static website does not have a shared user database or automatic account system.</p>
+  </section>
+
   <section class="section saved-section" id="saved">
     <div class="section-head"><div><div class="eyebrow">YOUR COLLECTION</div><h2>SAVED <em>ITEMS</em></h2><p>Save fruit entries and code notes for quick reference.</p></div></div>
     <div class="saved-list" id="savedList"><div class="empty-state">Nothing saved yet. Use the ☆ on a fruit or code to keep it here.</div></div>
@@ -130,7 +151,7 @@
     <p class="support-disclaimer">BLACKOUT is a fan-made community project, not an official AOPG or Roblox service. Never share passwords or account credentials to receive a donation reward. Any future paid features or ads should be clearly described before someone chooses to support the project.</p>
   </section>
 
-  <footer><div class="footer-brand"><span class="brand-icon">B</span><b>BLACKOUT</b></div><p>Fan-made AOPG community workspace. Not affiliated with the game developers or Roblox. Game details and codes should be verified against official sources.</p><span>V4.0 · LOCAL SAVE</span></footer>
+  <footer><div class="footer-brand"><span class="brand-icon">B</span><b>BLACKOUT</b></div><p>Fan-made AOPG community workspace. Not affiliated with the game developers or Roblox. Game details and codes should be verified against official sources.</p><span>V4.1 · COMMUNITY HUB</span></footer>
 </main>
 
 <div class="modal-backdrop" id="modalBackdrop">
